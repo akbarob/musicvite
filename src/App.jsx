@@ -4,9 +4,9 @@ import { Route, Routes } from "react-router-dom";
 import MusicPlayer from "./components/MusicPlayer";
 import { SearchBar } from "./components/SearchBar";
 import { SideBar } from "./components/SideBar";
-import { SongDetails } from "./components/SongDetails";
 import { TopPlay } from "./components/TopPlay";
 import { Discover } from "./pages/Discover";
+import { SongDetails } from "./pages/SongDetails";
 
 function App() {
   const { activeSong } = useSelector((state) => state.player);

@@ -63,7 +63,7 @@ export const TopPlay = () => {
   const divRef = useRef(null);
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
-  });
+  }, [null]);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));

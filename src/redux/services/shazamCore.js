@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
 export const shazamCoreApi = createApi({
   reducerPath: "shazamCoreApi",
@@ -23,6 +22,9 @@ export const shazamCoreApi = createApi({
     getSongRelated: builder.query({
       query: ({ songid }) => `/tracks/related?track_id=${songid}`,
     }),
+    getArtistDetails: builder.query({
+      query: ({ artistsId }) => `/artits/details?artist_id=${artistsId}`,
+    }),
   }),
 });
 
@@ -30,4 +32,5 @@ export const {
   useGetTopChartsQuery,
   useGetSongDetailsQuery,
   useGetSongRelatedQuery,
+  useGetArtistDetailsQuery,
 } = shazamCoreApi;
