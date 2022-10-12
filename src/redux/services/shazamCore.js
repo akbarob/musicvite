@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
 export const shazamCoreApi = createApi({
   reducerPath: "shazamCoreApi",
@@ -7,7 +8,7 @@ export const shazamCoreApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "X-RapidAPI-Key",
-        "b5320bb55cmshe126bd4110d2619p1e005bjsn5e548279daf3"
+        import.meta.env.VITE_SHAZAM_CORE_RAPID_API_KEY
       );
       return headers;
     },

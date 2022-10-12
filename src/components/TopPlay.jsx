@@ -59,11 +59,11 @@ export const TopPlay = () => {
   const { data, isFetching, error } = useGetTopChartsQuery();
   const topPlays = data?.slice(0, 5);
 
-  useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: "smooth" });
-  }, []);
   const dispatch = useDispatch();
   const divRef = useRef(null);
+  useEffect(() => {
+    divRef.current.scrollIntoView({ behavior: "smooth" });
+  });
 
   const handlePauseClick = () => {
     dispatch(playPause(false));

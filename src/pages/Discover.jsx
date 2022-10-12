@@ -7,7 +7,7 @@ import { SongCard } from "../components/SongCard";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 
 export const Discover = () => {
-  const dispacth = useDispatch();
+  const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetTopChartsQuery();
   console.log(genres);
