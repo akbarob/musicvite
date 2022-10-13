@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { RiSurroundSoundLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
@@ -55,6 +55,7 @@ const TopChartCard = ({
 };
 
 export const TopPlay = () => {
+  let location = useLocation();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetTopChartsQuery();
   const topPlays = data?.slice(0, 5);
@@ -63,7 +64,8 @@ export const TopPlay = () => {
   const divRef = useRef(null);
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [null]);
+    console.log("Top of page");
+  }, [location]);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -102,7 +104,7 @@ export const TopPlay = () => {
       <div className="w-full flex flex-col mt-8">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Artists</h2>
-          <Link to="/top-charts">
+          <Link to="top-artists">
             <p className="text-gray-300 text-base cursor-pointer">See more</p>
           </Link>
         </div>

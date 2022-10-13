@@ -5,8 +5,13 @@ import MusicPlayer from "./components/MusicPlayer";
 import { SearchBar } from "./components/SearchBar";
 import { SideBar } from "./components/SideBar";
 import { TopPlay } from "./components/TopPlay";
+import AroundYou from "./pages/AroundYou";
+import { ArtistsDetails } from "./pages/ArtistsDetails";
 import { Discover } from "./pages/Discover";
+import Search from "./pages/Search";
 import { SongDetails } from "./pages/SongDetails";
+import TopArtists from "./pages/TopArtists";
+import TopCharts from "./pages/TopCharts";
 
 function App() {
   const { activeSong } = useSelector((state) => state.player);
@@ -21,6 +26,11 @@ function App() {
             <Routes>
               <Route path="/" element={<Discover />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
+              <Route path="/artists/:artistId" element={<ArtistsDetails />} />
+              <Route path="around-you" element={<AroundYou />} />
+              <Route path="top-charts" element={<TopCharts />} />
+              <Route path="top-artists" element={<TopArtists />} />
+              <Route path="/search/:search" element={<Search />} />
             </Routes>
           </div>
           <div className="xl:sticky relative top-0 h-fit">
